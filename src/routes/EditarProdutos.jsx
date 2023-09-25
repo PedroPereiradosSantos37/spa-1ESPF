@@ -11,7 +11,6 @@ export default function EditarProdutos() {
     <div>
         <h1>Editar Produtos</h1>
         <h2>Produto selecinado : {id}</h2>
-        
     </div>
   )
 }

@@ -8,7 +8,7 @@
         text-align: center;
     }
 
-    & lineTbl{
+    & .lineTbl{
         background-color: #ccc;
 
         & td{
