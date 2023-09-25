@@ -5,24 +5,22 @@ import viteLogo from "./assets/vite.svg";
 import style from "./App.module.css";
 import { Outlet } from "react-router-dom";
 
-export default function App(){
-    let viteLogoAlt = 'vite logo'
-    return(
-      <>
-        <h1 className={style.titulo}>APP - Componente principal!</h1>
-        <div className={style.container}>
+export default function App() {
 
+  let viteLogoAlt = "Vite Logo";
+
+  return (
+    <>
+      <h1 className={style.titulo}>APP - Componente principal!</h1>
+      <div className={style.container}>
         {/* Iniciando a área do cabeçalho */}
-        <Cabecalho/>    
+        <Cabecalho />
 
           <Outlet/>
-
-        {/* Iniciando a área do conteúdo
-        <Conteudo viteLogoProps={viteLogo} viteLogoAltProps={viteLogoAlt}/>  */}
-
+       
         {/* Iniciando a área do rodapé */}
-        <Rodape/>
-        </div>
-      </>
-    )
+        <Rodape />
+      </div>
+    </>
+  );
 }
