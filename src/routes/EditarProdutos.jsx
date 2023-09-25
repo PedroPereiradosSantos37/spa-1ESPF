@@ -1,16 +1,17 @@
-import React from "react"
-import { useParams } from "react-router-dom"
+import React from 'react'
+import { useParams } from 'react-router-dom'
 
-export default function EditarProdutos(){
-    
+export default function EditarProdutos() {
+
     const {id} = useParams();
 
-    document.tile = "Editar Produtos + id";
+    document.title = "Editar Produtos " + id;
 
-    retur(
-        <div>
-            <h1>EditarProdutos</h1>
-            <h2>Produtos selecionado: {id}</h2>
-        </div>
-    )
+  return (
+    <div>
+        <h1>Editar Produtos</h1>
+        <h2>Produto selecinado : {id}</h2>
+        
+    </div>
+  )
 }
