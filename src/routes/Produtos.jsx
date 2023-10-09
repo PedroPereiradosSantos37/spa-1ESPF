@@ -1,26 +1,27 @@
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import { ListaProduto } from "../components/ListaProdutos";
-import style from './Produtos.module.css';
-import {AiTwotoneEdit as Editar} from "react-icons/ai";
+import style from "./Produtos.module.css";
+import {AiTwotoneEdit as Editar} from "react-icons/ai"
 import { useEffect, useState } from "react";
 
 export default function Produtos() {
   document.title = "Lista de Produtos";
 
-  const[listaProdutosApi, setListaProdutosApi] = useState([]);
+  const[listaProdutosApi,setListaProdutosApi] = useState([]);
 
   useEffect(()=>{
 
     //Realizando o Request
     fetch("http://localhost:5000/produtos")
-    //Recebendo o Respose e transformando em json
-    .then((response) => response.json())
+    //Recebendo o Response e transformando em json
+    .then((response)=> response.json())
     //Exibindo os dados no console
     .then((response)=> setListaProdutosApi(response))
     //Exibindo caso ocorra algum erro.
-    .catch(error=>console.log(error))
+    .catch(error=> console.log(error));
 
-  },[])
+  },[]);
+  
 
   return (
     <div>
@@ -44,7 +45,7 @@ export default function Produtos() {
               <td>{item.nome}</td>
               <td>{item.desc}</td>
               <td>{item.preco}</td>
-              <td><Link to={`/editar/produtos/${item.id}`}><Editar/></Link></td>  
+              <td><Link to={`/editar/produtos/${item.id}`}> <Editar/> </Link> </td>
             </tr>
           ))}
         </tbody>
