@@ -22,10 +22,17 @@ export default function Produtos() {
 
   },[]);
   
+  const [open, setOpen] = useState(false);
+
 
   return (
     <div>
       <h1>Produtos</h1>
+
+      <ModalAction open={open} setClose={setOpen}/>
+
+      <button onClick={()=> setOpen(true)}>OPEN-MODAL</button>
+
 
       <table className={style.tblEstilo}>
         <thead>
@@ -60,3 +67,4 @@ export default function Produtos() {
     </div>
   );
 }
+
