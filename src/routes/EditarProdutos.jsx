@@ -1,56 +1,56 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function EditarProdutos() {
 
-  const {id} = useParams();
-  const navigation = useNavigate()
+    const {id} = useParams();
+    const navigation = useNavigate()
 
-  document.title = "Editar Produtos " + id; 
+    document.title = "Editar Produtos " + id; 
 
-  const[produto,setProduto] = useState({
-    id:id,
-    nome:'',
-    desc:'',
-    preco:''
-  });
+    const[produto,setProduto] = useState({
+      id:id,
+      nome:'',
+      desc:'',
+      preco:''
+    });
 
-  //Criar uma estratégia para recuperar o produto da API-JSON com fetch, utilizando GET:
-  useEffect(()=>{
-    
-    fetch(`http://localhost:5000/produtos/${id}`)
-    .then((response)=> response.json())
-    .then((response)=> setProduto(response))
-    .catch(error=> console.log(error));
-
-  },[id]);
-  
-  const handleChange = (e)=>{
-
-    //Destructuring
-    const {name,value} = e.target;
-
-    //Setando os dados diretamente no objeto atravé de SPREAD
-    setProduto({...produto,[name]:value});
-    
-  }
-
-  const handleSubmit = (e) =>{
-    e.preventDefault();
- 
-      fetch(`http://localhost:5000/produtos/${id}`,{
-        method:"PUT",
-        headers:{
-          "Content-Type":"application/json"
-        },
-        body: JSON.stringify(produto)
-      })
-      .then((response)=> console.log("Dados alterado com sucesso - STATUS CODE : " + response.status))
+    //Criar uma estratégia para recuperar o produto da API-JSON com fetch, utilizando GET:
+    useEffect(()=>{
+      
+      fetch(`http://localhost:5000/produtos/${id}`)
+      .then((response)=> response.json())
+      .then((response)=> setProduto(response))
       .catch(error=> console.log(error));
 
-      //Redirect
-      navigation("/produtos");
-  }
+    },[id]);
+    
+    const handleChange = (e)=>{
+
+      //Destructuring
+      const {name,value} = e.target;
+
+      //Setando os dados diretamente no objeto atravé de SPREAD
+      setProduto({...produto,[name]:value});
+      
+    }
+
+    const handleSubmit = (e) =>{
+      e.preventDefault();
+   
+        fetch(`http://localhost:5000/produtos/${id}`,{
+          method:"PUT",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body: JSON.stringify(produto)
+        })
+        .then((response)=> console.log("Dados alterado com sucesso - STATUS CODE : " + response.status))
+        .catch(error=> console.log(error));
+
+        //Redirect
+        navigation("/produtos");
+    }
 
   return (
     <div>
