@@ -1,19 +1,23 @@
-// import React from 'react'
 
 export default function Home() {
-  document.tile = "HOME";
+  document.title = "HOME";
+  
+  if(sessionStorage.getItem("token-user")){
   return (
-
     <div>
       <h1>Home</h1>
-      <h2>Grande Oferta</h2>
+      <h2>Grande Oferta!</h2>
 
       <div>
         <figure>
-          <img src="/black-home.png" alt="log" />
+        <img src="/black-home.png" alt="log" />
           <figcaption></figcaption>
-          </figure>
-      </div> 
+        </figure>
+      </div>
+
     </div>
-  )
+  )}else{
+    window.location = "/login";
+    
+  }
 }

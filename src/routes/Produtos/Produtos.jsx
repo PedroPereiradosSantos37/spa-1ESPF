@@ -24,7 +24,7 @@ export default function Produtos() {
   
   const [open, setOpen] = useState(false);
 
-
+  if(sessionStorage.getItem("token-user")){
   return (
     <div>
       <h1>Produtos</h1>
@@ -32,7 +32,6 @@ export default function Produtos() {
       <ModalAction open={open} setClose={setOpen}/>
 
       <button onClick={()=> setOpen(true)}>OPEN-MODAL</button>
-
 
       <table className={style.tblEstilo}>
         <thead>
@@ -66,4 +65,7 @@ export default function Produtos() {
       </table>
     </div>
   );
+    }else{
+      window.location = "/login";     
+    }
 }
