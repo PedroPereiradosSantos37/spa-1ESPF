@@ -1,10 +1,11 @@
+
 .tblEstilo{
     border-collapse: collapse;
-    border: 2px solid #ccc;
+    border: 2px solid #828080;
 
     & th{
         background-color: #deb887;
-        border: 2px solid #828080;
+        border:2px solid #828080;
         text-align: center;
     }
 
@@ -22,7 +23,7 @@
                 text-align: center;
             }
 
-        }
+        }   
     }
 
     & tfoot{
@@ -32,4 +33,23 @@
             text-align: center;
         }
     }
+}
+
+.btnInsProd{
+    display: block;
+    margin: 5% auto;
+    height: 40px;
+    width: 40%;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid #828080;
+    background-color: #ccc;
+    color:black;
+    transition : 300ms ease-out;
+    
+        &:hover{
+            background-color: #828080;
+            border: 2px solid #ccc;
+            color: #fff;
+        }
 }

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import style from "./Produtos.module.css";
 import {AiTwotoneEdit as Editar} from "react-icons/ai"
 import { useEffect, useState } from "react";
-import ModalAction from "../../components/ModalAction/ModalAction"
+import ModalAction from "../../components/ModalAction/ModalAction";
 
 export default function Produtos() {
   document.title = "Lista de Produtos";
@@ -31,7 +31,7 @@ export default function Produtos() {
 
       <ModalAction open={open} setClose={setOpen}/>
 
-      <button onClick={()=> setOpen(true)}>OPEN-MODAL</button>
+      <button className={style.btnInsProd} onClick={()=> setOpen(true)}>INSERIR PRODUTO</button>
 
       <table className={style.tblEstilo}>
         <thead>
@@ -65,7 +65,8 @@ export default function Produtos() {
       </table>
     </div>
   );
-    }else{
-      window.location = "/login";     
-    }
+          }else{
+            window.location = "/login";
+            
+          }
 }
